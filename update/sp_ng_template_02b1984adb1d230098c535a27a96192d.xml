@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>amaCard.html</id>
+        <sp_widget display_value="AMA Main">8d32040edbd9230098c535a27a961965</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-23 04:20:33</sys_created_on>
+        <sys_id>02b1984adb1d230098c535a27a96192d</sys_id>
+        <sys_mod_count>62</sys_mod_count>
+        <sys_name>amaCard.html</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_ng_template_02b1984adb1d230098c535a27a96192d</sys_update_name>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-10-24 02:13:33</sys_updated_on>
+        <template><![CDATA[<div class="card panel panel-default">
+
+  <div ng-if="::card.type=='question'"
+       class="panel-body">
+    <div class="col-xs-2 col-md-1 vote text-center">
+      <a href
+         ng-click="c.up()">
+        <i class="fa fa-thumbs-up fa-2x"
+           ng-class="{'active':card.up}"></i>
+      </a>
+      <div class="score">
+        {{ card.score }}
+      </div>
+      <a href
+         ng-click="c.down()">
+        <i class="fa fa-thumbs-down fa-2x"
+           ng-class="{'active':card.down}"></i>
+      </a>
+    </div>
+    <div class="col-xs-10 col-md-11">
+      <h3>
+        {{ card.name }}
+      </h3>
+      <!--p>
+        {{card | json}}
+      </p-->
+      <div class="comments-section col-md-6">
+        <a href 
+           ng-show="card.comments.length"
+           ng-click="c.show_comments = !c.show_comments"><span>
+          <i class="fa fa-comments"></i>
+          &nbsp;{{card.comments.length.toString() || "0"}}
+          &nbsp;comments
+          &nbsp; <i class="fa fa-{{c.show_comments ? 'minus' : 'plus'}}-square"></i>
+          </span></a>
+        <span ng-show="card.comments.length">&nbsp;|&nbsp;</span>
+        <a href ng-click="c.addComment()"><span>
+          <i class="fa fa-pencil"></i>&nbsp;${Add a comment}
+          </span></a>
+      </div>
+      <div class="bottom-descriptor col-md-6">
+        <span>
+          <i class="fa fa-calendar"></i>&nbsp;{{card.created}}
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+          <i class="fa fa-user"></i>&nbsp;{{card.user}}
+        </span>
+      </div>
+      <div class="new-comments col-md-12" ng-show="c.show_add_comment">
+        <form class="form" ng-submit="c.postComment()">
+          <div class="form-group">
+            <textarea type="text" 
+                      placeholder="Add comment here" 
+                      class="form-control" 
+                      ng-model="c.newComment"
+                      ng-disabled="c.disable_comments">
+            </textarea>
+          </div>
+          <input class="btn btn-primary" 
+                 type="submit" 
+                 value="{{c.disable_comments ? 'Submitting...' : 'Add Comment'}}"
+                 ng-disabled="c.disable_comments">
+        </form>
+      </div>
+      <div class="col-md-12 all-comments"
+           ng-show="c.show_comments">
+        <div class="comment"
+             ng-repeat="comment in card.comments | orderBy: '-when' track by comment.id">
+          <strong>{{comment.by}}</strong> - {{comment.comment}} ({{comment.when}})
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="::card.type=='event'"
+       class="panel-body">
+    <a href="{{card.href}}">
+      <h3>
+        {{ card.name }}
+      </h3>
+      <p>
+        {{ card.description }}
+      </p>
+      <div>
+        {{ card.date }}
+      </div>
+    </a>
+  </div> 
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

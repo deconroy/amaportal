@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_ama_portal.AMAUtil</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>AMAUtil</name>
+        <script><![CDATA[var AMAUtil = Class.create();
+AMAUtil.prototype = {
+    initialize: function() {
+		this.event_table = "x_snc_ama_portal_event";
+		this.question_table = "x_snc_ama_portal_question";
+		this.vote_table = "x_snc_ama_portal_vote";
+		this.comment_table = "x_snc_ama_portal_comment";
+    },
+	
+	getEventList: function() {
+		var events = [];
+		var event = new GlideRecord(this.event_table);
+		event.query();
+		while (event.next()) {
+			events.push(this._buildEventObject(event));
+		}
+		return events;
+	},
+	
+	getEventDetails: function(eventID) {
+		var event = new GlideRecord(this.event_table);
+		event.get(eventID);
+		var eventObj = this._buildEventObject(event);
+		eventObj.questions = this.getQuestionsForEvent(eventID);
+		return eventObj;
+	},
+	
+	getQuestionsForEvent: function(eventID) {
+		var questions = [];
+		var question = new GlideRecord(this.question_table);
+		question.addQuery("event", eventID);
+		question.query();
+		while(question.next()) {
+			questions.push(this._buildQuestionObject(question));
+		}
+		return questions;
+	},
+	
+	getVoteDataForQuestion: function(questionId) {
+		var user = gs.getUserID();
+		var question = new GlideRecord(this.question_table);
+		question.get(questionId);
+		var score = parseInt(question.score);
+		var vote = new GlideRecord(this.vote_table);
+		vote.addQuery("question", questionId);
+		vote.addQuery("user", user);
+		vote.query();
+		var up = false;
+		var down = false;
+		if (vote.next()) {
+			var currentVote = parseInt(vote.getValue("vote"));
+			if (currentVote > 0) {
+				up = true;
+			} else if (currentVote < 0) {
+				down = true;
+			}
+		}
+		return {
+			up: up,
+			down: down,
+			score: score
+		};
+	},
+	
+	updateMyVote: function(questionId, score) {
+		var user = gs.getUserID();
+		var vote = new GlideRecord(this.vote_table);
+		vote.addQuery("question", questionId);
+		vote.addQuery("user", user);
+		vote.query();
+		if (vote.next()) {
+			vote.setValue("vote", score);
+			return vote.update();
+		} else {
+			vote.initialize();
+			vote.setValue("question", questionId);
+			vote.setValue("user", user);
+			vote.setValue("vote", score);
+			return vote.insert();
+		}
+	},
+	
+	//called from BR on insert/update/delete of vote record
+	processVote: function(voteRecord) {
+		var questionId = voteRecord.getValue("question");
+		var question = new GlideRecord(this.question_table);
+		question.get(questionId);
+		var vote = new GlideRecord(this.vote_table);
+		vote.addQuery("question", questionId);
+		vote.addQuery("sys_id", "!=", voteRecord.getUniqueValue());
+		vote.query();
+		var totalVote = parseInt(voteRecord.getValue("vote"));
+		while (vote.next()) {
+			totalVote += parseInt(vote.getValue("vote"));
+		}
+		question.score = totalVote;
+		question.update();
+	},
+	
+	_buildEventObject: function(event) {
+		return {
+			name: event.getDisplayValue(),
+			date: event.getDisplayValue("when"),
+			type: "event",
+			id: event.getUniqueValue(),
+			href: "?event=" + event.getUniqueValue()
+		};
+	},
+	
+	_buildQuestionObject: function(question) {
+		var voteData = this.getVoteDataForQuestion(question.getUniqueValue());
+		return {
+			name: question.getDisplayValue(),
+			created: question.getDisplayValue("sys_created_on"),
+			type: "question",
+			user: question.getDisplayValue("sys_created_by"),
+			id: question.getUniqueValue(),
+			score: voteData.score,
+			up: voteData.up,
+			down: voteData.down,
+			comments: this._getCommentsArray(question.getUniqueValue())
+		};
+	},
+	
+	_getCommentsArray: function(question) {
+		var comments = [];
+		var comment = new GlideRecord(this.comment_table);
+		comment.addQuery("question", question);
+		comment.query();
+		while (comment.next()) {
+			comments.push({
+				comment: comment.getValue("comment"),
+				when: comment.getDisplayValue("sys_created_on"),
+				by: comment.getValue("sys_created_by"),
+				id: comment.getDisplayValue()
+			});
+		}
+		return comments;
+	},
+
+    type: 'AMAUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-23 04:04:00</sys_created_on>
+        <sys_id>c39d40c6db1d230098c535a27a9619d8</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>AMAUtil</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sys_script_include_c39d40c6db1d230098c535a27a9619d8</sys_update_name>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-10-24 01:58:44</sys_updated_on>
+    </sys_script_include>
+</record_update>

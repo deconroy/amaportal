@@ -3,24 +3,103 @@
         <name>amaCard</name>
         <script><![CDATA[function() {
 	return {
-		controller: function() {
-			console.log("test");
+		controller: function($scope, $http) {
+			var c = this;
+			$scope.card.score = parseInt($scope.card.score);
+			
+		/*	$scope.$watch('card.score', function(newVal) {
+				console.log($scope.card.id);
+				console.log($scope.card.up);
+				console.log($scope.card.down);
+				console.log($scope.card.score);
+			});*/
+			
+			
+			c.addComment = function() {
+				c.show_add_comment = !c.show_add_comment;
+			}
+			
+			c.postComment = function() {
+				c.disable_comments = true;
+				$http.post("/api/now/table/x_snc_ama_portal_comment", {
+					"comment": c.newComment,
+					"question": $scope.card.id
+				}).then(function(r) {
+					c.disable_comments = false;
+					c.show_add_comment = false;
+					c.newComment = "";
+					c.show_comments = true;
+				});
+			}
+
+			//upvote and downvote functions
+			//only does client so far
+			//could probably be a bit cleverer with this
+			c.up = function() {
+				if ($scope.card.up) { //undo up
+					$scope.card.up = false;
+					$scope.card.down = false;
+					$scope.card.score -= 1;
+				} else if ($scope.card.down) { //undo down and do up
+					$scope.card.down = false;
+					$scope.card.up = true;
+					$scope.card.score += 2;
+				} else { //just up
+					$scope.card.down = false;
+					$scope.card.up = true;
+					$scope.card.score += 1;
+				}
+				updateScore();
+			}
+			c.down = function() {
+				if ($scope.card.down) { //undo downvote
+					$scope.card.down = false;
+					$scope.card.up = false;
+					$scope.card.score += 1;
+				} else if ($scope.card.up) { //undo upvote and do downvote
+					$scope.card.up = false;
+					$scope.card.down = true;
+					$scope.card.score -= 2;
+				} else { //just downvote
+					$scope.card.up = false;
+					$scope.card.down = true;
+					$scope.card.score -= 1;
+				}
+				updateScore();
+			}
+
+			function updateScore() {
+				var myScore = 0;
+				if ($scope.card.up)
+					myScore = 1;
+				else if ($scope.card.down)
+					myScore = -1;
+
+				$http.post("/api/x_snc_ama_portal/ama_portal/updatemyvote?question=" + $scope.card.id + "&score=" + myScore)
+					.then(function(r) {
+					console.log(r);
+				});
+			}
 		},
-		template: "TEST"
+		scope: {
+			card: "="
+		},
+		templateUrl: "amaCard.html",
+		controllerAs: "c"
 	};
 }]]></script>
         <sys_class_name>sp_angular_provider</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:21:53</sys_created_on>
         <sys_id>2534c4cedbd9230098c535a27a961947</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>amaCard</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_angular_provider_2534c4cedbd9230098c535a27a961947</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-23 03:21:53</sys_updated_on>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-10-24 02:05:11</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

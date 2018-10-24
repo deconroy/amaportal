@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Event" max_length="40" name="x_snc_ama_portal_event" type="collection">
-        <element display="true" label="Name" max_length="100" name="name" type="string"/>
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element label="When" mandatory="true" max_length="40" name="when" type="glide_date_time"/>
     </element>
 </database>

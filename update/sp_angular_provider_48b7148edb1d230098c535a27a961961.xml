@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
     <sp_angular_provider action="INSERT_OR_UPDATE">
-        <name>amaEventSelect</name>
+        <name>amaLoading</name>
         <script><![CDATA[function() {
 	return {
-		controller: function($http) {
-			var c = this;
-			$http.get("/api/x_snc_ama_portal/ama_portal/list_events").then(function(r) {
-				c.events = r.data.result.events;
-				console.log(c.events);
-			})
+		scope: {
+			loading: "="
 		},
-		controllerAs: 'c',
-		templateUrl: "amaEventSelect.html"
+		template: '<div><div ng-show="loading"><i class="fa fa-spinner fa-spin"></i></div></div>'
 	};
 }]]></script>
         <sys_class_name>sp_angular_provider</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-10-23 03:41:19</sys_created_on>
-        <sys_id>92b8c482db1d230098c535a27a9619d7</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>amaEventSelect</sys_name>
+        <sys_created_on>2018-10-23 04:47:36</sys_created_on>
+        <sys_id>48b7148edb1d230098c535a27a961961</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>amaLoading</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
-        <sys_update_name>sp_angular_provider_92b8c482db1d230098c535a27a9619d7</sys_update_name>
+        <sys_update_name>sp_angular_provider_48b7148edb1d230098c535a27a961961</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-23 04:18:26</sys_updated_on>
+        <sys_updated_on>2018-10-23 04:47:36</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

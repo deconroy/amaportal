@@ -3,7 +3,7 @@
         <element label="Data" max_length="10000" name="data" type="json"/>
         <element label="Event" max_length="32" name="event" reference="x_snc_ama_portal_event" type="reference"/>
         <element display="true" label="Question" max_length="4000" name="question" type="string"/>
-        <element label="Score" max_length="40" name="score" type="integer"/>
+        <element default="0" label="Score" max_length="40" name="score" read_only="true" type="integer"/>
         <index name="index">
             <element name="event"/>
         </index>

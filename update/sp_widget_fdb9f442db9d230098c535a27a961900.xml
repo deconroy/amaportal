@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>ama_login</id>
+        <internal>false</internal>
+        <link/>
+        <name>ama_login</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-23 07:14:39</sys_created_on>
+        <sys_id>fdb9f442db9d230098c535a27a961900</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>ama_login</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_widget_fdb9f442db9d230098c535a27a961900</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-10-23 07:18:02</sys_updated_on>
+        <template><![CDATA[<div>
+This widget needs to:
+  - let people register with a servicenow email address. either send them a random password, or let them choose one.
+  - validation: must be an sn email address, and must not already be used
+  - let people login if they have registered
+  - let people reset password (send a random password (doesn't need to be complex) to their sn email
+  - the user profile created only needs a user_name (should be their sn email addy) and a password. don't worry about the rest for now
+  - after login, the page should automatically reload to /amaportal
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,57 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <client_script><![CDATA[function(spUtil, $scope) {
+  var c = this;
+	if (!c.data.authenticated)
+		processLogin();
+	
+	
+	function processLogin() {
+		spUtil.get("ama_login")
+			.then(function(r) {
+				c.loginWidget = r;
+		});
+	}
+	
+	
+}]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>$grey: $gray;
+$danger: $danger;
+$success: $success;
+$primary: $primary;
+
+.card {
+  .vote {
+    i {
+      color: $grey;
+    }
+    i.fa-thumbs-up:hover {
+      color: $success;
+    }
+    i.fa-thumbs-down:hover {
+      color: $danger;
+    }
+    i.active {
+      color: $primary;
+    }
+    .score {
+      font-size: 20px;
+      line-height: 35px;
+    }
+  }
+  .bottom-descriptor, .comments-section {
+    span {
+      padding-right: 10px;
+    }
+    i {
+      padding-right: 5px;
+    }
+  }
+  .bottom-descriptor {
+    text-align: right;
+  }
+  .new-comments {
+    padding-top: 10px;
+  }
+  .all-comments {
+    padding-top: 10px;
+    .comment {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
         <docs/>
         <field_list/>
-        <has_preview>false</has_preview>
+        <has_preview>true</has_preview>
         <id>ama_main</id>
         <internal>false</internal>
         <link/>
         <name>AMA Main</name>
         <option_schema/>
-        <public>false</public>
+        <public>true</public>
         <roles/>
         <script><![CDATA[(function() {
 	data.authenticated = gs.isLoggedIn();
-	if (data.authenticated) {
-		data.cards = getAmaCards();
-	}
-	
-	function getAmaCards() {
-	}
+	data.event = $sp.getParameter("event");
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:12:07</sys_created_on>
         <sys_id>8d32040edbd9230098c535a27a961965</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>AMA Main</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_widget_8d32040edbd9230098c535a27a961965</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-23 03:47:43</sys_updated_on>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-10-24 02:08:46</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-if="c.data.authenticated">
     <div ng-if="!c.data.event">
       <ama-event-select/>
     </div>
     <div ng-if="c.data.event">
+      <a href="?">
+        <i class="fa fa-chevron-left"></i>
+        ${Back to all events}
+      </a>
+      <ama-event-details event="c.data.event"></ama-event-details>
       <div ng-repeat="card in c.data.cards track by card.sys_id">
         <ama-card card="card"/>
       </div>
     </div>
   </div>
   <div ng-if="!c.data.authenticated">
-    ${Not logged in}
+    <ama-loading loading="!c.loginWidget"></ama-loading>
+    <sp-widget widget="c.loginWidget"></sp-widget>
   </div>
 </div>]]></template>
     </sp_widget>

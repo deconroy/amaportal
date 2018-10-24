@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Vote" max_length="40" name="x_snc_ama_portal_vote" type="collection">
+        <element label="Question" max_length="32" name="question" reference="x_snc_ama_portal_question" type="reference"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element display="true" label="Vote" max_length="40" name="vote" type="integer"/>
+        <index name="index">
+            <element name="question"/>
+        </index>
+        <index name="index2">
+            <element name="user"/>
+        </index>
+    </element>
+</database>
