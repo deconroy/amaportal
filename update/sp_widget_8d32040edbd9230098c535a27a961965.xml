@@ -17,20 +17,31 @@
 	
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>$grey: $gray;
-$danger: $danger;
-$success: $success;
-$primary: $primary;
+        <css>.ask-questions {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.card.panel.event:hover {
+    box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+}
+
+.card.panel.question {
+    box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+}
+.card.panel {
+  border-radius: 0;
+}
 
 .card {
   .vote {
     i {
-      color: $grey;
+      color: $gray;
     }
-    i.fa-thumbs-up:hover {
+    i.fa-arrow-up:hover {
       color: $success;
     }
-    i.fa-thumbs-down:hover {
+    i.fa-arrow-down:hover {
       color: $danger;
     }
     i.active {
@@ -85,24 +96,24 @@ $primary: $primary;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:12:07</sys_created_on>
         <sys_id>8d32040edbd9230098c535a27a961965</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>AMA Main</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_widget_8d32040edbd9230098c535a27a961965</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-24 02:08:46</sys_updated_on>
+        <sys_updated_on>2018-10-26 05:30:41</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-if="c.data.authenticated">
     <div ng-if="!c.data.event">
       <ama-event-select/>
     </div>
     <div ng-if="c.data.event">
-      <a href="?">
+      <!--a href="?">
         <i class="fa fa-chevron-left"></i>
         ${Back to all events}
-      </a>
+      </a-->
       <ama-event-details event="c.data.event"></ama-event-details>
       <div ng-repeat="card in c.data.cards track by card.sys_id">
         <ama-card card="card"/>

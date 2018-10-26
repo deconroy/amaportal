@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
-        <css_variables/>
+        <css_variables>$blue: #007bff;&#13;
+$indigo: #6610f2;&#13;
+$purple: #6f42c1;&#13;
+$pink: #e83e8c;&#13;
+$red: #dc3545;&#13;
+$orange: #fd7e14;&#13;
+$yellow: #ffc107;&#13;
+$green: #28a745;&#13;
+$teal: #20c997;&#13;
+$cyan: #17a2b8;&#13;
+$white: #fff;&#13;
+$gray: #6c757d;&#13;
+$gray-dark: #343a40;&#13;
+$primary: #5576c4;&#13;
+$secondary: #9a55c4;&#13;
+$success: #90c455;&#13;
+$info: #55aec4;&#13;
+$warning: #c47355;&#13;
+$danger: #c45567;&#13;
+$light: #fff;&#13;
+$dark: #1f2739;&#13;
+&#13;
+h1 {&#13;
+	color: $success;&#13;
+}</css_variables>
         <default>false</default>
         <homepage display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</homepage>
         <icon/>
         <kb_knowledge_base/>
         <kb_knowledge_page/>
-        <login_page/>
+        <login_page display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</login_page>
         <logo/>
         <notfound_page/>
         <quick_start_config/>
@@ -20,15 +44,15 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 02:45:39</sys_created_on>
         <sys_id>37fb7ff1dbd9230098c535a27a9619b7</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>AMA Portal</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_portal_37fb7ff1dbd9230098c535a27a9619b7</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-23 03:17:37</sys_updated_on>
-        <theme/>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-10-25 01:51:23</sys_updated_on>
+        <theme display_value="AMA">7a0a692edb51a30098c535a27a9619aa</theme>
         <title>AMA Portal</title>
         <url_suffix>amaportal</url_suffix>
     </sp_portal>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="bf1143bedb9da30098c535a27a961940" sys_domain="global" table="cmdb_application_product_model" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bf11c3bedb9da30098c535a27a96192b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="cmdb_application_product_model" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf1143bedb9da30098c535a27a961940</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_application_product_model" sys_domain="global" view="Default view">b711c3bedb9da30098c535a27a96192a</sys_ui_section>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bb11c3bedb9da30098c535a27a961930</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="cmdb_application_product_model" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf1143bedb9da30098c535a27a961940</sys_ui_form>
+            <sys_ui_section caption="General" display_value="General" name="cmdb_application_product_model" sys_domain="global" view="Default view">7711c3bedb9da30098c535a27a96192d</sys_ui_section>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7311c3bedb9da30098c535a27a96192d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="cmdb_application_product_model" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf1143bedb9da30098c535a27a961940</sys_ui_form>
+            <sys_ui_section caption="Compatibles" display_value="Compatibles" name="cmdb_application_product_model" sys_domain="global" view="Default view">b311c3bedb9da30098c535a27a96192c</sys_ui_section>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3f11c3bedb9da30098c535a27a961929</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="cmdb_application_product_model" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf1143bedb9da30098c535a27a961940</sys_ui_form>
+            <sys_ui_section caption="Assets" display_value="Assets" name="cmdb_application_product_model" sys_domain="global" view="Default view">331143bedb9da30098c535a27a961943</sys_ui_section>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7f11c3bedb9da30098c535a27a961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="cmdb_application_product_model" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf1143bedb9da30098c535a27a961940</sys_ui_form>
+            <sys_ui_section caption="Configuration items" display_value="Configuration items" name="cmdb_application_product_model" sys_domain="global" view="Default view">bf11c3bedb9da30098c535a27a961930</sys_ui_section>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>cmdb_application_product_model</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>james.warner@snc</sys_created_by>
+            <sys_created_on>2018-10-26 01:01:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bf1143bedb9da30098c535a27a961940</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>cmdb_application_product_model</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+            <sys_update_name>sys_ui_form_sections_bf1143bedb9da30098c535a27a961940</sys_update_name>
+            <sys_updated_by>james.warner@snc</sys_updated_by>
+            <sys_updated_on>2018-10-26 01:01:41</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

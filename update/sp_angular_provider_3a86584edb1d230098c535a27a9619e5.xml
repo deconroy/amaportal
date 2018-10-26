@@ -3,8 +3,38 @@
         <name>amaEventDetails</name>
         <script><![CDATA[function() {
 	return {
-		controller: function($scope, $http, spUtil) {
+		controller: function($scope, $http, spUtil, $uibModal) {
 			var c = this;
+			c.question = "";
+			c.ask = function() {
+				var modalInstance = $uibModal.open({
+					templateUrl: 'ask-question.html',
+					//size: 'sm',
+					controllerAs: "m",
+					controller: function($http) {
+						var m = this;
+						m.question = c.question;
+						m.ok = function() {
+							m.submitting = true;
+							$http.post("/api/now/table/x_snc_ama_portal_question", {
+								"event": c.eventDetail.id,
+								"question": m.question
+							}).then(function(r) {
+								m.submitting = false;
+								close(true);
+								c.question = "";
+							});
+						}
+						m.cancel = function() {
+							close(false);
+						}
+						function close(submit) {
+							c.question = m.question;
+							modalInstance.dismiss(submit?'submit':'cancel');
+						}
+					}
+				});
+			}
 			init();
 			//watchers
 			spUtil.recordWatch($scope, "x_snc_ama_portal_question", "", function(d) {
@@ -34,14 +64,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:42:39</sys_created_on>
         <sys_id>3a86584edb1d230098c535a27a9619e5</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>amaEventDetails</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_angular_provider_3a86584edb1d230098c535a27a9619e5</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-24 02:02:13</sys_updated_on>
+        <sys_updated_on>2018-10-26 05:28:10</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

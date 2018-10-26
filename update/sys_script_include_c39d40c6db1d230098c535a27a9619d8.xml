@@ -145,6 +145,95 @@ AMAUtil.prototype = {
 		}
 		return comments;
 	},
+	
+	processRegistration: function(username) {
+		if (!username) {
+			return false;
+		} else {
+			var createdUser = this._createUser(username);
+			
+			if (createdUser) {
+				this._emailCredentials();
+				return createdUser;
+			} else {
+				return false;
+			}
+		}
+	},
+	
+	processPasswordReset: function(username) {
+		if (!username) {
+			return false;
+		} else {
+			var password = this._generatePassword(10);
+			gs.info("processPasswordReset - password: " + password);
+
+			var existingUser = this._getUser(username);
+			
+			if (existingUser) {
+				existingUser.setValue("user_password", password);
+				var existingUserId = existingUser.update();
+				
+				this._emailCredentials();
+				return (existingUserId) ? existingUserId : false;
+			} else {
+				return false;
+			}
+		}
+	},
+	
+	_createUser: function(username) {
+		if (!username) {
+			return false;
+		} else {
+			var password = this._generatePassword(10);
+			gs.info("_createUser - password: " + password);
+
+			var usrGR = new GlideRecord("sys_user");
+			usrGR.initialize();
+			usrGR.setValue("email", username);
+			usrGR.setValue("user_name", username);
+			usrGR.setValue("user_password", password);
+			var newUserId = usrGR.insert();
+			
+			return (newUserId) ? newUserId : false;
+		}
+	},
+	
+	_getUser: function(username) {
+		if (!username) {
+			return false;
+		} else {
+			var usrGR = new GlideRecord("sys_user");
+			usrGR.addQuery("user_name", username);
+			usrGR.addQuery("active", true);
+			usrGR.query();
+			
+			if (usrGR.hasNext()) {
+				while (usrGR.next()) {
+					return usrGR;
+				}
+			} else {
+				return false;
+			}
+		}
+	},
+	
+	_generatePassword: function(length) {
+		var allowedStr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%()",
+			pwdLength = length || 10,
+			generatedPassword = "";
+		
+		for (var ctr = 0; ctr < pwdLength; ctr++) {
+			generatedPassword += allowedStr[Math.floor(Math.random() * allowedStr.length)];
+		}
+		
+		return generatedPassword;
+	},
+	
+	_emailCredentials: function() {
+		
+	},
 
     type: 'AMAUtil'
 };]]></script>
@@ -152,13 +241,13 @@ AMAUtil.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:04:00</sys_created_on>
         <sys_id>c39d40c6db1d230098c535a27a9619d8</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>AMAUtil</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sys_script_include_c39d40c6db1d230098c535a27a9619d8</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-24 01:58:44</sys_updated_on>
+        <sys_updated_by>sanjiv.viswanath</sys_updated_by>
+        <sys_updated_on>2018-10-26 05:21:43</sys_updated_on>
     </sys_script_include>
 </record_update>

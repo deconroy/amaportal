@@ -6,22 +6,22 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:20:33</sys_created_on>
         <sys_id>02b1984adb1d230098c535a27a96192d</sys_id>
-        <sys_mod_count>62</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_name>amaCard.html</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_ng_template_02b1984adb1d230098c535a27a96192d</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-24 02:13:33</sys_updated_on>
-        <template><![CDATA[<div class="card panel panel-default">
+        <sys_updated_on>2018-10-25 02:04:27</sys_updated_on>
+        <template><![CDATA[<div class="card panel panel-default {{card.type}}">
 
   <div ng-if="::card.type=='question'"
        class="panel-body">
     <div class="col-xs-2 col-md-1 vote text-center">
       <a href
          ng-click="c.up()">
-        <i class="fa fa-thumbs-up fa-2x"
+        <i class="fa fa-arrow-up fa-2x"
            ng-class="{'active':card.up}"></i>
       </a>
       <div class="score">
@@ -29,7 +29,7 @@
       </div>
       <a href
          ng-click="c.down()">
-        <i class="fa fa-thumbs-down fa-2x"
+        <i class="fa fa-arrow-down fa-2x"
            ng-class="{'active':card.down}"></i>
       </a>
     </div>
@@ -90,7 +90,7 @@
   </div>
 
   <div ng-if="::card.type=='event'"
-       class="panel-body">
+       class="panel-body event">
     <a href="{{card.href}}">
       <h3>
         {{ card.name }}
