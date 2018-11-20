@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>sample</category>
+        <client_script><![CDATA[function() {
+  // widget controller
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.sn-footer-logo {&#13;
+  background-color: #373741; &#13;
+  color: white; &#13;
+  padding: 20px 0;&#13;
+  margin-top: 10px;&#13;
+}&#13;
+&#13;
+.sn-footer-logo-wrapper {&#13;
+  display: inline;&#13;
+  padding-right: 15px;&#13;
+  border-right: 2px solid #efefef;&#13;
+}&#13;
+&#13;
+.sn-footer-text {&#13;
+    padding-left: 15px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>AMA Footer</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+ data.time = new GlideDateTime().getDisplayValue();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 00:47:19</sys_created_on>
+        <sys_id>92e030f6db6d630098c535a27a9619a9</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>AMA Footer</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_header_footer_92e030f6db6d630098c535a27a9619a9</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-14 03:23:24</sys_updated_on>
+        <template><![CDATA[<div class="sn-footer-logo">
+  <!--
+  <div class="sn-footer-logo-wrapper">
+    <a href="/"><svg width="74px" height="21px" viewBox="0 0 74 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <desc></desc> <defs></defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Hover-States" transform="translate(-40.000000, -462.000000)"> <g id="footer" transform="translate(-288.000000, -1.000000)"> <g id="mark" transform="translate(327.000000, 261.000000)"> <g id="Group" transform="translate(1.000000, 202.000000)"> <polygon id="Fill-1" fill="#81B59F" points="68.3265265 0 64.0511581 11.3548824 59.9334132 0 55.5899338 0 51.4341419 11.3548824 47.1968206 0 42 0 49.7294978 19.86875 53.6062213 19.86875 57.7616735 8.5549037 61.9172956 19.86875 65.7940191 19.86875 73.5233471 0"></polygon> <path d="M0,20.2785917 L0,0.409841667 L5.10163704,0.409841667 L5.10163704,2.00747963 C6.61166204,0.778647222 8.48910741,0 10.6927639,0 C13.4272926,0 15.9168167,1.22883241 17.5494306,3.19544907 C18.855487,4.75205093 19.5898083,6.7597037 19.5898083,10.159987 L19.5898083,20.2785917 L14.2843759,20.2785917 L14.2843759,9.74997222 C14.2843759,7.783875 13.8354028,6.7597037 13.1009083,6.02226574 C12.4069306,5.32586389 11.3458787,4.91584907 10.1215481,4.91584907 C7.87668241,4.91584907 6.0404463,6.35003519 5.3057787,7.37437963 L5.3057787,20.2785917 L0,20.2785917 Z" id="Fill-2" fill="#81B59F"></path> <path d="M32.084983,17.0665338 C28.7945876,17.0665338 26.5425159,14.5335496 26.5425159,11.3995681 C26.5425159,8.26472085 28.7945876,5.68879585 32.084983,5.68879585 C35.3763943,5.68879585 37.6271115,8.26472085 37.6271115,11.3995681 C37.6271115,14.5335496 35.3763943,17.0665338 32.084983,17.0665338 M32.1498359,0.000186595273 C26.0755073,-0.0354819232 21.050678,5.04710882 21.0003874,11.2816542 C20.9738028,14.5818579 22.3172567,17.5620838 24.4819549,19.6573496 C25.269164,20.4188551 26.4862987,20.4927894 27.3402234,19.8114514 C28.6020609,18.8044218 30.2225366,18.2042903 32.084983,18.2042903 C33.9472601,18.2042903 35.5677358,18.8045949 36.8295733,19.8114514 C37.6904404,20.498157 38.912655,20.4103709 39.704436,19.6407273 C41.8383163,17.5671051 43.1697479,14.6312051 43.1697479,11.3777514 C43.1697479,5.11706067 38.2410973,0.0360282619 32.1498359,0.000186595273" id="Fill-5" fill="#81B59F"></path> </g> </g> </g> </g> </g></svg></a>
+  </div>
+  <span class="sn-footer-text">Works for you</span>
+  -->
+</div>
+]]></template>
+    </sp_header_footer>
+</record_update>

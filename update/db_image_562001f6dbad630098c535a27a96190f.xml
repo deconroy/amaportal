@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format/>
+        <height/>
+        <image>004001f6dbad630098c535a27a961915</image>
+        <name>sn-logo.svg</name>
+        <size_bytes>2811</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 01:54:12</sys_created_on>
+        <sys_id>562001f6dbad630098c535a27a96190f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sn-logo.svg</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>db_image_562001f6dbad630098c535a27a96190f</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-07 01:54:20</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2811</size_bytes>
+        <size_compressed>1225</size_compressed>
+        <state>available</state>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 01:54:20</sys_created_on>
+        <sys_id>004001f6dbad630098c535a27a961915</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-07 01:54:20</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>562001f6dbad630098c535a27a96190f</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="004001f6dbad630098c535a27a961915">004001f6dbad630098c535a27a961915</sys_attachment>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 01:54:20</sys_created_on>
+        <sys_id>084001f6dbad630098c535a27a961915</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>jVbJbuNGEP0Vgrk2W6ze2yMZUObig3P1YS4BI3EkAbJlWIw1RjD/nlfVpC05sRMILHb1Ul3Lq0fNj8+b6sf9/uG4qLfD8Hg1m51OJ32y+vC0mZm2bWfYUVfPu/706+HHom6rtiKXdMqVMfX1fN1/P17Pj8PLvr/Wq/2xISUv89f33X5/9YvJtnftl5/na1bWmqc/9/1V/9w/HNbrcYMdTyX6w3f05ed8VizPZ+WeYTdAWx6P/VDRfFbU+abarRf1bffSP/1u6mrdDV3z0N3341zFfp7voebfdhF2PXbDtlrtuyPSIQ5j36L+zQZtogo6pi5oxyOIln+N0+QVaZfvgs72xiRt7Z0hHfLW6uzuyGgTOgddieBTpKz2qSGdLEbZFFFWCCvaOFhLchkpEeUy0hQaTfXsQ09JZ9iImjIOG8WPHFWOnQwr0m3ge2C90d6UAWnjv0adoHpNSUdFQbHEglm1jWFHjY4W0fqsvA5ORl3WpPgprpc83Gbcg6Odx0RxG+dNQyvc02ZWlXa24bspiy8IHh7LRCgjzvdXXB+DMi0SqLIyBhcjOGOWhCklolzcYtO3T5Jigg5wDqWKK6kYsUupidq7BmXzZeS0RW4wRkVRoFxGEVVbRl4SUbLJTnm40iWVxqkAm8HdGsfpb3PntUFKWIiTjeWE6si1T6GIsuCw5G/go/dLOKr4GW958/vbfYOAqeGULK1myLwiJsNyRoo7AwQqEWXFSL4QSUnOYf+yOTy8y8/jYfcwQHUAnKlQ/+wq3+rkK8Zz5R3SU4ZoekqVQLtyHkUexxaAGXcAI3kcvpn7pDAMdYAEjnt23NsSEDLpo+jL8xXBWDnBNp/61XBuEz0NfvKATqqrl0XNftTVabcetouae7Gutv1usx0WNVIawyd+xSC9kXRIKH3MSkTxICDVUnoAIykR4jS3py8wQbeIGA8wzO1tRMWSIgMuAJeIKN1htZOyokXdRCpYbxmEKRcx9jA3L69ZecokwIPmQpU+64Dcsj9AivWvkKUGzQXIMq5jEWUaweIJY69w43MrBM4C6CcWKhMaQYodHHC2jLiLQDswKaJY455HY9ub1KLRu0v0My8hAHXZLBxU5JwQYG91CNykrgNZvhJKFpBkdd4KnEoKZ4D/IBdGaIWxK5wNno75DuA2zLfcf25sTYSJgJnUuDG5kmHiOmq9TiqvqJAWMV6MdCuPwKLxGdkwW7iU/R0h4IjQA3d/mNgccwgiRsyRPFNwxjRMxo6x5QrASnSeKSSZ5/xRiHb8CoCCJJJgO4DYKhHFCrckc0oubCRipBtcXMgXtCeixApoeOHpaIp43W7xMRqNX9yQkDUH3N7jFPMRME8cCk3IA/yziDMwcw8lrmmr/rmdN5n83zRGFqmmkZnIAvZxUozXrSnsRPhMT7RGFkEHpioboeBF0wJiGoeO4572uDdOHP8JjWOrWzvd5sDWr27wNwYvRFCdO/hBOOYsHPBohOksbFoUfHvIiWLeK+PV/izqURm3SQAXyoVpUf6PV5EDgp3sJAXhzUXJx4UyOYLa2ndKC5oQpZUPi00Vm8bRNwWvaVtRRgP4xtKlMl0aQa1nyuQohzXbjA/+017/DWq8hoH7CgAA</data>
+        <length>1620</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="004001f6dbad630098c535a27a961915">004001f6dbad630098c535a27a961915</sys_attachment>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 01:54:20</sys_created_on>
+        <sys_id>884001f6dbad630098c535a27a961915</sys_id>
+    </sys_attachment_doc>
+</record_update>

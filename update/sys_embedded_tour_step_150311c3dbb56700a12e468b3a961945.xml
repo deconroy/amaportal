@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref display_value="xpath">8103dd83dbb56700a12e468b3a96193e</action_target_ref>
+        <active>true</active>
+        <content><![CDATA[View and add comments.]]></content>
+        <guide display_value="Ask questions">a84e8503dbb56700a12e468b3a96196c</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name>Step 2</name>
+        <options>{"url":"/amaportal?event=27b1ddc5db71630098c535a27a9619ac"}</options>
+        <order>2</order>
+        <placement>top</placement>
+        <step_type>step</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
+        <sys_created_on>2018-11-20 08:10:32</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>150311c3dbb56700a12e468b3a961945</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Step 2</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_150311c3dbb56700a12e468b3a961945</sys_update_name>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-11-20 08:10:32</sys_updated_on>
+        <target/>
+        <target_ref display_value="xpath">8103dd83dbb56700a12e468b3a96193e</target_ref>
+        <title><![CDATA[Step 2]]></title>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window>amaportal</window>
+    </sys_embedded_tour_step>
+    <sys_translated_text action="delete_multiple" query="documentkey=150311c3dbb56700a12e468b3a961945"/>
+</record_update>

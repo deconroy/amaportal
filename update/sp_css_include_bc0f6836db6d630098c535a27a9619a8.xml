@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <name>ama-style</name>
+        <source>local</source>
+        <sp_css display_value="ama-custom.css">760fa836db6d630098c535a27a961901</sp_css>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 00:39:37</sys_created_on>
+        <sys_id>bc0f6836db6d630098c535a27a9619a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ama-style</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_css_include_bc0f6836db6d630098c535a27a9619a8</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-07 00:39:37</sys_updated_on>
+        <url/>
+    </sp_css_include>
+</record_update>

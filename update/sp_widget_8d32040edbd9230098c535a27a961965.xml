@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function(spUtil, $scope) {
+        <client_script><![CDATA[function(spUtil, $scope, $location) {
   var c = this;
 	if (!c.data.authenticated)
 		processLogin();
-	
+
 	
 	function processLogin() {
 		spUtil.get("ama_login")
@@ -23,14 +23,15 @@
 }
 
 .card.panel.event:hover {
-    box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 13px rgba(0, 0, 0, .1);
 }
 
 .card.panel.question {
-    box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 13px rgba(0, 0, 0, .1);
 }
+
 .card.panel {
-  border-radius: 0;
+  border-radius: 0;  
 }
 
 .card {
@@ -73,6 +74,210 @@
       padding-bottom: 5px;
     }
   }
+}
+
+/* JS CSS Tweaks */
+h1.event_select, h1.event_name {
+  font-weight: 600;
+  color: black;
+}
+
+.card.event {
+  position: relative;
+  padding: 0 15px;
+  float: left;
+  height: 185px;
+}
+
+.event_name {
+  margin-top: 10px;
+}
+
+.event_date {
+  position: absolute;
+  bottom: 10px;
+  color: grey;
+}
+
+.ask-questions {
+  position: fixed;
+  bottom: 150px;
+  right: 40px;
+  z-index: 100;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .ask-questions {
+    bottom: 10px;
+    right: 10px;
+
+  }
+}
+
+.ask-btn {
+  border: none;
+  border-radius: 40px;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+  color: #fff;
+  display: inline-flex;
+  height: 55px;
+  justify-content: center;
+  position: relative;
+  width: 55px;
+}
+
+.ask-btn .glyphicon {
+  font-size: 23px;
+}
+
+.card .new-comments {
+  z-index: 75;
+}
+
+.card .all-comments {
+  z-index: 50;
+}
+
+.comments-section, .bottom-descriptor {
+  z-index: 85;   
+}
+
+.comment_author {
+  float: left;
+  padding-right: 6px;
+}
+
+.comment_background {
+  background-color: #f2f3f5;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: #1c1e21;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  word-break: break-word;
+  padding: 10px;
+}
+
+.comment_text {
+  float: left;
+}
+
+.comment_timestamp {
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+.card-title h3 {
+  color: black;
+}
+
+.no_side_padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.event_description {
+  margin-bottom: 20px;
+}
+
+.event_description a {
+  font-weight: bold;
+}
+
+ama-loading {
+  font-size: 35px;
+  text-align: center;
+  padding: 50px;
+}
+
+.no_questions {
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  border-top: 1px solid #eeeeee;
+  padding: 20px 55px 0px 55px;
+}
+
+@media(max-width: 768px) {  
+  .card .all-comments {
+    margin-top: 20px;
+  }
+  .event_description {
+    padding: 0px 10px;
+  }
+  .no_questions {    
+    padding: 20px;
+  }
+  .card.panel.event {
+    height: 115px;
+    padding: 0px;
+    margin-bottom: 10px;
+  }    
+  .card.panel.question {
+    margin-bottom: -1px;
+  }
+  .card-title h3, .event_name {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+  .event_name {
+    font-weight: 600; 
+  }
+  .event_date {
+    font-size: 13px;
+  }
+  .ask-questions {
+    padding: 0px;
+  }
+  .ask-btn {    
+    //height: 75px;   
+    //width: 75px;
+  }
+  .comments-section {
+    display: inline-block;
+    padding: 0px;
+    float: left;
+  }
+  .card .comments-section span {
+    padding-right: 5px;
+  }
+  #comments_count_text {
+    display: none;
+  }
+  #question_timestamp {
+    display: none;
+  }
+  #question_author {
+    display: inline-block;
+    float: right;
+  }
+  .card .new-comments {
+    margin: 30px 0px;
+  }
+  .bottom-descriptor {
+    padding: 0px;
+    text-align: left;
+  }
+  .vote {
+    padding: 0px;
+  }
+  h1.event_name {    
+    font-size: 30px;
+    text-align: center;
+  }
+  h1.event_select {
+    margin: 0px 0px 0px 10px;    
+  }	
+  .card .bottom-descriptor {
+    text-align: left;
+  }  
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -88,7 +293,7 @@
         <public>true</public>
         <roles/>
         <script><![CDATA[(function() {
-	data.authenticated = gs.isLoggedIn();
+	data.authenticated = gs.isLoggedIn();	
 	data.event = $sp.getParameter("event");
 })();]]></script>
         <servicenow>false</servicenow>
@@ -96,14 +301,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:12:07</sys_created_on>
         <sys_id>8d32040edbd9230098c535a27a961965</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>165</sys_mod_count>
         <sys_name>AMA Main</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_widget_8d32040edbd9230098c535a27a961965</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:30:41</sys_updated_on>
+        <sys_updated_on>2018-11-20 08:08:18</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-if="c.data.authenticated">
     <div ng-if="!c.data.event">
@@ -120,7 +325,7 @@
       </div>
     </div>
   </div>
-  <div ng-if="!c.data.authenticated">
+  <div ng-if="!c.data.authenticated" class='login_box'>
     <ama-loading loading="!c.loginWidget"></ama-loading>
     <sp-widget widget="c.loginWidget"></sp-widget>
   </div>

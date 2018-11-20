@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_change_log">
+    <gsw_change_log action="INSERT_OR_UPDATE">
+        <change_date>2018-10-30 00:46:11</change_date>
+        <changed_by display_value="James Warner">1518c3f2dbdda30098c535a27a961955</changed_by>
+        <content display_value="System Configuration">cd27ed5c25513200964f48ca4b89e81d</content>
+        <related_change_log_entry/>
+        <related_task_entry/>
+        <sys_class_name>gsw_change_log</sys_class_name>
+        <sys_created_by>james.warner</sys_created_by>
+        <sys_created_on>2018-10-30 00:46:11</sys_created_on>
+        <sys_id>77e32384db2d230098c535a27a961967</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2018-10-30 00:46:11</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>gsw_change_log_77e32384db2d230098c535a27a961967</sys_update_name>
+        <sys_updated_by>james.warner</sys_updated_by>
+        <sys_updated_on>2018-10-30 00:46:11</sys_updated_on>
+        <type>7</type>
+    </gsw_change_log>
+</record_update>

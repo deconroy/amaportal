@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="AMA Footer">92e030f6db6d630098c535a27a9619a9</child>
+        <cloned>2018-11-07 00:47:19</cloned>
+        <last_validated>2018-11-07 00:47:19</last_validated>
+        <parent display_value="Sample Footer">feb4f763df121200ba13a4836bf26320</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;sample&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  // widget controller
+  var c = this;
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.sample-footer {
+  background-color: black; 
+  color: white; 
+  padding: 5px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Sample Footer&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+ data.time = new GlideDateTime().getDisplayValue();
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_header_footer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-03-28 00:50:09&lt;/sys_created_on&gt;&lt;sys_id&gt;feb4f763df121200ba13a4836bf26320&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;Sample Footer&lt;/sys_name&gt;&lt;sys_package display_value="Service Portal - Core" source="com.glide.service-portal"&gt;6c0e1621dbd12300a12e468b3a9619d4&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_header_footer_feb4f763df121200ba13a4836bf26320&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-08-24 19:10:14&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[ &lt;div class="sample-footer"&gt;	
+  ${Page generated at {{::c.data.time}}}
+ &lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-07 00:47:19</sys_created_on>
+        <sys_id>dae030f6db6d630098c535a27a9619ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>92e030f6db6d630098c535a27a9619a9</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_dae030f6db6d630098c535a27a9619ab</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-07 00:47:19</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

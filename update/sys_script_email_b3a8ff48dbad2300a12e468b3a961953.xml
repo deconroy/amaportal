@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>generate_password</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	template.print("Password: " + new x_snc_ama_portal.AMAUtil().setPassword(current.user_name.toString()));
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>sanjiv.viswanath</sys_created_by>
+        <sys_created_on>2018-10-30 02:16:51</sys_created_on>
+        <sys_id>b3a8ff48dbad2300a12e468b3a961953</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>generate_password</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sys_script_email_b3a8ff48dbad2300a12e468b3a961953</sys_update_name>
+        <sys_updated_by>sanjiv.viswanath</sys_updated_by>
+        <sys_updated_on>2018-10-30 03:30:35</sys_updated_on>
+    </sys_script_email>
+</record_update>

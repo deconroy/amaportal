@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.glyphicon-comment {
+	color: #ff8e00;
+  font-size: 54px;  
+}
+
+.ama.jumbotron {
+  background-color: rgba(0,0,0,0);
+  margin-bottom: 20px;
+  padding: 0px;
+}
+
+.ask.btn {
+  color: white;
+  border-color: white;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media(max-width: 768px) {  
+  .display-1, .display-3 {
+    font-size: 45px !important;
+  }
+  .glyphicon-comment {
+    font-size: 22px;
+    margin-left: -11px;
+  }
+  .display-1 {
+    padding-top: 20px;
+  }    
+  .ama.jumbotron {
+    //padding: 40px 50px 0px 50px;
+    padding: 0px;
+    margin-top: 30px;
+    text-align: center;
+	}
+}
+
+//Default CSS from template
+
+$border-radius: 10px !default;
+$border-radius-sm: 10px !default;
+$border-radius-lg: 10px !default;
+
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  font-family: "Oswald", sans-serif;
+}
+
+.display-1 {
+  font-size: 110px;
+
+  @include media-breakpoint-down(md) {
+    font-size: 92px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    font-size: 70px;
+  }
+}
+
+.display-3 {
+  font-size: 55px;
+
+  @include media-breakpoint-down(xs) {
+    font-size: 40px;
+  }
+}
+
+.title-margin-fix {
+  margin-top: -33px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: -13px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-top: 0;
+  }
+}
+
+.text-handwriting {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>AMA Homepage Banner</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-10-29 02:36:24</sys_created_on>
+        <sys_id>228372ffdb912300a12e468b3a96197a</sys_id>
+        <sys_mod_count>37</sys_mod_count>
+        <sys_name>AMA Homepage Banner</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_widget_228372ffdb912300a12e468b3a96197a</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-09 04:23:44</sys_updated_on>
+        <template><![CDATA[<div class="ama jumbotron bg-primary text-center text-white mb-0 radius-0">
+  <div class="container">
+
+    <h1 class="display-3 text-white text-handwriting text-uppercase">ASK ME ANYTHING
+      <span class="glyphicon glyphicon-comment"></span>
+    </h1>
+    
+    <h1 class="display-1 text-success text-uppercase title-margin-fix">HEALTHSCAN</h1>
+
+  </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Shadows+Into+Light" rel="stylesheet">]]></template>
+    </sp_widget>
+</record_update>

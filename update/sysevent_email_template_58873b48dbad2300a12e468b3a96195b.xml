@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>sys_user</collection>
+        <email_layout/>
+        <message/>
+        <message_html><![CDATA[<p>Hi,</p>
+<p>Here are your credentials for the ServiceNow AMA Portal:</p>
+<p>Username: ${email}</p>
+<p>${mail_script:generate_password}</p>
+<p>You will be asked to change your password when you log in.</p>
+<p>&nbsp;</p>
+<p>--</p>
+<p>The ServiceNow AMA Team</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>AMA Portal Password Reset</name>
+        <sms_alternate/>
+        <subject>Your credentials for the ServiceNow AMA Portal</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>sanjiv.viswanath</sys_created_by>
+        <sys_created_on>2018-10-30 02:14:40</sys_created_on>
+        <sys_id>58873b48dbad2300a12e468b3a96195b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>AMA Portal Password Reset</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sysevent_email_template_58873b48dbad2300a12e468b3a96195b</sys_update_name>
+        <sys_updated_by>sanjiv.viswanath</sys_updated_by>
+        <sys_updated_on>2018-10-30 03:33:15</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

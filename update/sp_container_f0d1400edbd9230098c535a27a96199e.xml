@@ -5,23 +5,23 @@
         <background_style>default</background_style>
         <bootstrap_alt>false</bootstrap_alt>
         <class_name/>
-        <container_class_name/>
-        <name>Ask Me Anything - Container 1</name>
-        <order>1</order>
+        <container_class_name>ama_body</container_class_name>
+        <name>Ask Me Anything - Container 2</name>
+        <order>2</order>
         <sp_page display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:10:28</sys_created_on>
         <sys_id>f0d1400edbd9230098c535a27a96199e</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Ask Me Anything - Container 1</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Ask Me Anything - Container 2</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_container_f0d1400edbd9230098c535a27a96199e</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-25 02:01:56</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-10-30 01:08:05</sys_updated_on>
         <title/>
         <width>container</width>
     </sp_container>

@@ -1,35 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
     <sp_header_footer action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function() {
-  /* widget controller */
+        <client_script><![CDATA[function($location, spGtd) {
   var c = this;
+	
+	c.launchHelp = function() {
+		if (!c.data.event)
+			spGtd.launch("4895c94bdb756700a12e468b3a961980");
+		else 
+			spGtd.launch("a84e8503dbb56700a12e468b3a96196c");
+	}
+	
+	c.goToEvent = function(event_sys_id) {
+		var newEvent = {
+			event: event_sys_id
+		};
+		redirect(newEvent, true);		
+	}
+	
+	c.goToEventSelector = function() {
+		var newPage = {
+			id: 'ask_me_anything'
+		};
+		redirect(newPage, false);
+	}
+	
+	function redirect(parms, retain) {
+		var newParms = {};
+		if (retain === true) {
+			newParms = angular.copy($location.search());
+		}
+
+		for (k in parms) {
+			newParms[k] = parms[k];
+		}
+		
+		$location.search(newParms);
+	}
+	
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>a.dropdown-toggle, a:hover, a.dropdown-toggle.openm, a {
-  background-color: inherit !important;
-}
-nav.navbar.navbar-primary {
-  background-color: $primary;
-  li &gt; a, a.navbar-brand {
-    color: white;
-  }
-}
-span.icon-bar {
-    background-color: white;
-}
-ul.dropdown-menu, .dropdown-menu &gt; li &gt; a:hover, .dropdown-menu &gt; li &gt; a:focus {
-    background-color: $primary;
-}
-li &gt; a:hover {
-  text-decoration: underline;
-}
-.dropdown-menu &gt; li &gt; a:hover, .dropdown-menu &gt; li &gt; a:focus {
-  
-}
-
-nav.navbar.navbar-primary {
-    border-radius: 0;
+        <css>a.dropdown-toggle, a:hover, a.dropdown-toggle.openm, a {&#13;
+  background-color: inherit !important;&#13;
+}&#13;
+nav.navbar {&#13;
+  /* This is bad temporary css and i'm sorry LOL*/&#13;
+  background-color: transparent;&#13;
+  margin-bottom: 0px;&#13;
+  border: 0px;&#13;
+  z-index: 300;  &#13;
+}&#13;
+&#13;
+.ama_dropdown a {&#13;
+    color: white !important;&#13;
+}&#13;
+&#13;
+div#navbar.collapse {&#13;
+    border: 0px;&#13;
+}&#13;
+&#13;
+button.navbar-toggle.collapsed {&#13;
+    border-color: #6b6b6b;&#13;
+}&#13;
+&#13;
+span.icon-bar {&#13;
+    background-color: white;&#13;
+}&#13;
+ul.dropdown-menu, .dropdown-menu &gt; li &gt; a:hover, .dropdown-menu &gt; li &gt; a:focus {&#13;
+    background-color: $default;&#13;
+}&#13;
+&#13;
+a.events_dropdown, a.events_dropdown:hover, a.events_dropdown:focus {&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+nav.navbar.navbar-primary {&#13;
+    border-radius: 0;&#13;
+}&#13;
+&#13;
+ul.events li {&#13;
+  padding: 3px 20px;&#13;
+}&#13;
+&#13;
+li.divider {&#13;
+  padding: 0px !important;&#13;
+}&#13;
+&#13;
+ul.events li:hover {&#13;
+ font-weight: bold;   &#13;
+}&#13;
+&#13;
+ul.events {&#13;
+  color: black;&#13;
+  width: 200px;&#13;
+  background-color: white;&#13;
+  border-radius: 4px;&#13;
+}&#13;
+&#13;
+@media(max-width: 768px) {&#13;
+  .ama_dropdown a {&#13;
+    color: black !important;&#13;
+ }&#13;
+ #navbar.collapse {&#13;
+   border: 0px;&#13;
+   background-color: #F7F7F7;&#13;
+   margin-top: -60px;&#13;
+   margin-bottom: 80px;&#13;
+ }&#13;
+  &#13;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -45,8 +123,20 @@ nav.navbar.navbar-primary {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-  /* populate the 'data' object */
-  /* e.g., data.table = $sp.getValue('table'); */
+	data.event = $sp.getParameter("event");
+	var eventsGR = new GlideRecord("x_snc_ama_portal_event");
+	eventsGR.query(); //Don't need any conditions?
+	data.events = [];
+	
+	while(eventsGR.next()) {
+		var thisEvent = {
+			name:   eventsGR.getValue('name'),
+			date:   eventsGR.getValue('when'),
+			sys_id: eventsGR.getUniqueValue()
+		};
+		data.events.push(thisEvent);
+	}
+	
 
 })();]]></script>
         <servicenow>false</servicenow>
@@ -54,51 +144,57 @@ nav.navbar.navbar-primary {
         <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
         <sys_created_on>2018-10-25 00:04:54</sys_created_on>
         <sys_id>a85a6d2edb51a30098c535a27a96195f</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>AMA Header</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_header_footer_a85a6d2edb51a30098c535a27a96195f</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:34:54</sys_updated_on>
-        <template><![CDATA[<nav class="navbar navbar-primary">
+        <sys_updated_on>2018-11-20 08:01:56</sys_updated_on>
+        <template><![CDATA[<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">AMA</a>
+      </button>      
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div id="navbar" class="navbar-collapse collapse">
+      
       <ul class="nav navbar-nav">
-        <!--li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li-->
-      </ul>
-      <!--form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form-->
-      <ul class="nav navbar-nav navbar-right">
-           <li><a href="?">Change Event</a></li>
-         <!--li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Event</a></li>
-            <li><a href="#">Event</a></li>
-            <li class="divider"></li>
-            <li><a href="?">All events</a></li>
+         <li class="dropdown ama_dropdown">
+          <a href
+             id="select-event-dropdown"
+             class="dropdown-toggle events_dropdown"
+             data-toggle="dropdown"
+             role="button"
+             aria-expanded="false">Events<span class="caret"></span></a>
+          <ul class="dropdown-menu events" role="menu">            
+            <li ng-repeat="event in c.data.events" ng-click="c.goToEvent(event.sys_id)" class='event'>{{event.name}}</li>
+            <li role='separator' class="divider"></li>
+            <li ng-click="c.goToEventSelector()">All events</li>
           </ul>
-        </li-->
+        </li>
+      </ul>
+      
+      
+      <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+         <li class="ama_dropdown">
+          <a href
+             ng-click="c.launchHelp()"
+             class="events_dropdown"
+             data-toggle="dropdown"
+             role="button"
+             aria-expanded="false">Help&nbsp;<i class="fa fa-question-circle"></i></a>
+        </li>
       </ul>
     </div>
   </div>
-</nav>]]></template>
+</nav>
+
+]]></template>
     </sp_header_footer>
 </record_update>

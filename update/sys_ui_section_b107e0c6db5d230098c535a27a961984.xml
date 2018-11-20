@@ -4,13 +4,13 @@
             <element>event</element>
             <position>0</position>
             <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
-            <sys_created_on>2018-10-23 23:57:17</sys_created_on>
-            <sys_id>b83fd8dedb55630098c535a27a961963</sys_id>
+            <sys_created_on>2018-11-20 08:14:07</sys_created_on>
+            <sys_id>71d31107dbb56700a12e468b3a961986</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_question" sys_domain="global" view="Default view">b107e0c6db5d230098c535a27a961984</sys_ui_section>
             <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-            <sys_updated_on>2018-10-23 23:57:17</sys_updated_on>
+            <sys_updated_on>2018-11-20 08:14:07</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>question</element>
             <position>1</position>
             <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
-            <sys_created_on>2018-10-23 23:57:17</sys_created_on>
-            <sys_id>303fd8dedb55630098c535a27a961964</sys_id>
+            <sys_created_on>2018-11-20 08:14:07</sys_created_on>
+            <sys_id>39d31107dbb56700a12e468b3a961986</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_question" sys_domain="global" view="Default view">b107e0c6db5d230098c535a27a961984</sys_ui_section>
             <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-            <sys_updated_on>2018-10-23 23:57:17</sys_updated_on>
+            <sys_updated_on>2018-11-20 08:14:07</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,27 @@
             <element>score</element>
             <position>2</position>
             <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
-            <sys_created_on>2018-10-23 23:57:17</sys_created_on>
-            <sys_id>b03fd8dedb55630098c535a27a961964</sys_id>
+            <sys_created_on>2018-11-20 08:14:07</sys_created_on>
+            <sys_id>b9d31107dbb56700a12e468b3a961986</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_question" sys_domain="global" view="Default view">b107e0c6db5d230098c535a27a961984</sys_ui_section>
             <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-            <sys_updated_on>2018-10-23 23:57:17</sys_updated_on>
+            <sys_updated_on>2018-11-20 08:14:07</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>3</position>
+            <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
+            <sys_created_on>2018-11-20 08:14:07</sys_created_on>
+            <sys_id>3dd31107dbb56700a12e468b3a961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_question" sys_domain="global" view="Default view">b107e0c6db5d230098c535a27a961984</sys_ui_section>
+            <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+            <sys_updated_on>2018-11-20 08:14:07</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

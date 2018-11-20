@@ -6,28 +6,35 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:43:22</sys_created_on>
         <sys_id>a8f65c4edb1d230098c535a27a9619a4</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_name>amaEventDetails.html</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_ng_template_a8f65c4edb1d230098c535a27a9619a4</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:26:40</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-14 06:22:51</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-show="c.eventDetail">
-    <h1>{{c.eventDetail.name}}</h1>
-  </div>
+    <h1 class='event_name'>{{c.eventDetail.name}}</h1>
+    <hr>
+    <div ng-bind-html='c.eventDetail.description' class='event_description'></div>
+  </div>    
   <div class="ask-questions">
-    <button class="btn btn-primary btn-lg"
-            ng-click="c.ask()">
-      ${Ask a question}
+    <button class="btn btn-primary btn-lg ask-btn"
+            ng-click="c.ask()"
+            tooltip-placement="top" 
+            uib-tooltip="Ask a question">
+      <span class="glyphicon glyphicon-comment"></span>      
     </button>
   </div>
   <div ng-show="c.eventDetail.questions">
     <div ng-repeat="question in c.eventDetail.questions | orderBy:'-score' track by question.id">
       <ama-card card="question"></ama-card>
     </div>
+  </div>
+  <div ng-show='c.eventDetail.questions.length == 0' class='no_questions'>
+    There currently aren't any questions for this event. Check back later, or ask a question by clicking the "Ask a question" button in the bottom-right corner.
   </div>
   <div ng-show="!c.eventDetail || c.eventQuestions">
     <ama-loading loading="true"/>

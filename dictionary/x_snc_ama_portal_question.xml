@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Question" max_length="40" name="x_snc_ama_portal_question" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Data" max_length="10000" name="data" type="json"/>
         <element label="Event" max_length="32" name="event" reference="x_snc_ama_portal_event" type="reference"/>
         <element display="true" label="Question" max_length="4000" name="question" type="string"/>

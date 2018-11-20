@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
-        <css_variables>$blue: #007bff;&#13;
-$indigo: #6610f2;&#13;
-$purple: #6f42c1;&#13;
-$pink: #e83e8c;&#13;
-$red: #dc3545;&#13;
-$orange: #fd7e14;&#13;
-$yellow: #ffc107;&#13;
-$green: #28a745;&#13;
-$teal: #20c997;&#13;
-$cyan: #17a2b8;&#13;
-$white: #fff;&#13;
-$gray: #6c757d;&#13;
-$gray-dark: #343a40;&#13;
-$primary: #5576c4;&#13;
-$secondary: #9a55c4;&#13;
-$success: #90c455;&#13;
-$info: #55aec4;&#13;
-$warning: #c47355;&#13;
-$danger: #c45567;&#13;
-$light: #fff;&#13;
-$dark: #1f2739;&#13;
-&#13;
-h1 {&#13;
-	color: $success;&#13;
-}</css_variables>
+        <css_variables>$brand-primary: #ff8e00;&#13;
+$body-bg: #fff;&#13;
+$state-success-text: #90c455;&#13;
+$sp-homepage-bg: #fff;&#13;
+$sp-navbar-divider-color: #455464;&#13;
+$text-color: #717171;&#13;
+$sp-logo-margin-y: .5rem;&#13;
+$navbar-inverse-link-hover-color: #ffffff;&#13;
+$panel-bg: #fff;&#13;
+$brand-success: #90c455;&#13;
+$navbar-inverse-bg: #343a40;&#13;
+$brand-warning: #c47355;&#13;
+$brand-danger: #c45567;&#13;
+$sp-tagline-color: #717171;&#13;
+$navbar-inverse-link-color: #bdc0c4;&#13;
+$brand-info: #55aec4;&#13;
+$link-color: #5576c4;&#13;
+$sp-logo-margin-x: 1rem;&#13;
+$btn-default-bg: #fff;&#13;
+$text-muted: #979797;&#13;
+</css_variables>
         <default>false</default>
         <homepage display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</homepage>
-        <icon/>
+        <icon>05011894dbad230098c535a27a961917</icon>
         <kb_knowledge_base/>
         <kb_knowledge_page/>
         <login_page display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</login_page>
-        <logo/>
+        <logo>87b3e344db2d230098c535a27a9619c6</logo>
         <notfound_page/>
         <quick_start_config/>
         <sc_catalog/>
@@ -44,17 +40,55 @@ h1 {&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 02:45:39</sys_created_on>
         <sys_id>37fb7ff1dbd9230098c535a27a9619b7</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>AMA Portal</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_portal_37fb7ff1dbd9230098c535a27a9619b7</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-25 01:51:23</sys_updated_on>
+        <sys_updated_by>james.warner</sys_updated_by>
+        <sys_updated_on>2018-10-30 04:03:09</sys_updated_on>
         <theme display_value="AMA">7a0a692edb51a30098c535a27a9619aa</theme>
         <title>AMA Portal</title>
         <url_suffix>amaportal</url_suffix>
     </sp_portal>
     <sys_translated_text action="delete_multiple" query="documentkey=37fb7ff1dbd9230098c535a27a9619b7"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#ff8e00</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>icon</file_name>
+        <image_height>106</image_height>
+        <image_width>106</image_width>
+        <size_bytes>1792</size_bytes>
+        <size_compressed>1650</size_compressed>
+        <state>available</state>
+        <sys_created_by>james.warner</sys_created_by>
+        <sys_created_on>2018-10-30 04:03:09</sys_created_on>
+        <sys_id>05011894dbad230098c535a27a961917</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>james.warner</sys_updated_by>
+        <sys_updated_on>2018-10-30 04:03:09</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>37fb7ff1dbd9230098c535a27a9619b7</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="icon" sys_id="05011894dbad230098c535a27a961917">05011894dbad230098c535a27a961917</sys_attachment>
+        <sys_created_by>james.warner</sys_created_by>
+        <sys_created_on>2018-10-30 04:03:09</sys_created_on>
+        <sys_id>45011894dbad230098c535a27a961917</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>2188</length>
+        <position>1</position>
+        <sys_attachment display_value="icon" sys_id="05011894dbad230098c535a27a961917">05011894dbad230098c535a27a961917</sys_attachment>
+        <sys_created_by>james.warner</sys_created_by>
+        <sys_created_on>2018-10-30 04:03:09</sys_created_on>
+        <sys_id>c5011894dbad230098c535a27a961917</sys_id>
+    </sys_attachment_doc>
 </record_update>

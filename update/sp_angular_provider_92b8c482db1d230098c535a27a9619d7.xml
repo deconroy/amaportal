@@ -7,7 +7,14 @@
 			var c = this;
 			$http.get("/api/x_snc_ama_portal/ama_portal/list_events").then(function(r) {
 				c.events = r.data.result.events;
-				console.log(c.events);
+				for(var i = 0; i < c.events.length; i++) {
+					var unformatted_date = c.events[i].date;
+					if(unformatted_date) {
+						var formatted_date = moment(unformatted_date, 'DD/MM/YYYY hh:mm:ss').format("Do MMMM YYYY");
+						c.events[i].date = formatted_date;
+					}
+				}
+				//console.log(c.events);
 			})
 		},
 		controllerAs: 'c',
@@ -18,14 +25,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:41:19</sys_created_on>
         <sys_id>92b8c482db1d230098c535a27a9619d7</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>amaEventSelect</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_angular_provider_92b8c482db1d230098c535a27a9619d7</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-23 04:18:26</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-14 05:32:43</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

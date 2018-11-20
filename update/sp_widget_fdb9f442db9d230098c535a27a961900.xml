@@ -51,21 +51,52 @@
 	};
 	
 	c.register = function(username) {
-		c.server.get({
-			"action": "register",
-			"username": username
-		}).then(function(response) {
-			console.log(response.data);
-		});
+		if (/.*servicenow.com$/.test(username)) {
+			c.message = null;
+
+			c.server.get({
+				"action": "register",
+				"username": username
+			}).then(function(response) {
+				console.log(response.data);
+
+				if (typeof response.data.result.registerFailure !== "undefined") {
+					c.message = response.data.result.registerFailure;
+				}
+
+				if (typeof response.data.result.registerSuccess !== "undefined") {
+					c.success = response.data.result.registerSuccess;
+				}
+			}, function errorCallback(response) {
+				c.message = $scope.data.errorMsg;
+			});
+		} else {
+			c.message = "You must enter a ServiceNow (firsname.lastname@servicenow.com) email address";
+		}
 	};
 	
 	c.passwordReset = function(username) {
-		c.server.get({
-			"action": "passwordReset",
-			"username": username
-		}).then(function(response) {
-			console.log(response.data);
-		});
+		if (/.*servicenow.com$/.test(username)) {
+			c.message = null;
+
+			c.server.get({
+				"action": "passwordReset",
+				"username": username
+			}).then(function(response) {
+				console.log(response.data);
+				if (typeof response.data.result.passwordResetFailure !== "undefined") {
+					c.message = response.data.result.passwordResetFailure;
+				}
+
+				if (typeof response.data.result.passwordResetSuccess !== "undefined") {
+					c.success = response.data.result.passwordResetSuccess;
+				}
+			}, function errorCallback(response) {
+				c.message = $scope.data.errorMsg;
+			});
+		} else {
+			c.message = "You must enter a ServiceNow (firstname.lastname@servicenow.com) email address";
+		}
 	};
 	
 	c.beginRegistration = function() {
@@ -78,10 +109,14 @@
 	
 	c.abandonRegistration = function() {
 		c.data.beginRegistration = false;
+		c.message = null;
+		c.success = null;
 	};
 	
 	c.abandonPasswordReset = function() {
 		c.data.beginPasswordReset = false;
+		c.message = null;
+		c.success = null;
 	};
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -143,12 +178,30 @@ label[for="password"] {&#13;
         <roles/>
         <script><![CDATA[(function() {
 	if (input && input.action === "register") {
-		data.result = { registerResult: new x_snc_ama_portal.AMAUtil().processRegistration(input.username) };
+		var registerResult = new x_snc_ama_portal.AMAUtil().processRegistration(input.username);
+		
+		if (registerResult === false) {
+			data.result = { registerFailure: "There was an error during registration" };
+		} else if (registerResult === null) {
+			data.result = { registerFailure: "A user with this username already exists" };
+		} else {
+			data.result = { registerSuccess: "An account has been created for you. You will receive an email shortly with your credentials." };
+		}
+
 		return;
 	}
 
 	if (input && input.action === "passwordReset") {
-		data.result = { passwordResetResult: new x_snc_ama_portal.AMAUtil().processForgotPassword(input.username) };
+		var passwordResetResult = new x_snc_ama_portal.AMAUtil().processPasswordReset(input.username);
+		
+		if (passwordResetResult === false) {
+			data.result = { passwordResetFailure: "There was an error resetting your password" };
+		} else if (passwordResetResult === null) {
+			data.result = { passwordResetFailure: "A user with this username does not exist" };
+		} else {
+			data.result = { passwordResetSuccess: "Your password was successfully reset. You will receive an email shortly with your new password." };
+		}
+
 		return;
 	}
 	
@@ -158,8 +211,8 @@ label[for="password"] {&#13;
 	data.errorMsg = gs.getMessage("There was an error processing your request");
 	data.errorMsg2 = gs.getMessage("An error has occurred - please contact your system administrator");
 	data.passwordMsg = gs.getMessage("Password");
-	data.usernameMsg = gs.getMessage("User name");
-	data.forgetMeDefault = GlideProperties.getBoolean('glide.ui.remember.me.default', true);
+	data.usernameMsg = gs.getMessage("User name (firstname.lastname@servicenow.com)");
+	data.forgetMeDefault = false;
 	data.is_logged_in = gs.getSession().isLoggedIn();
 })();]]></script>
         <servicenow>false</servicenow>
@@ -167,14 +220,14 @@ label[for="password"] {&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 07:14:39</sys_created_on>
         <sys_id>fdb9f442db9d230098c535a27a961900</sys_id>
-        <sys_mod_count>82</sys_mod_count>
+        <sys_mod_count>102</sys_mod_count>
         <sys_name>ama_login</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_widget_fdb9f442db9d230098c535a27a961900</sys_update_name>
         <sys_updated_by>sanjiv.viswanath</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:16:28</sys_updated_on>
+        <sys_updated_on>2018-10-30 04:15:36</sys_updated_on>
         <template><![CDATA[<div ng-if="!data.is_logged_in">
   <!--
 This widget needs to:
@@ -201,6 +254,9 @@ This widget needs to:
           <label for="password" class="sr-only">{{ ::data.passwordMsg }}</label>
           <input id="password" name="password" ng-keypress="c.message = ''" ng-click="c.message = ''" class="form-control no-border" type="password" placeholder='{{::data.passwordMsg}}' ng-model="c.password"/>
         </div>
+        
+        <div ng-if="c.message" class="alert alert-danger" role="alert">{{c.message}}</div>
+        <div ng-if="c.success" class="alert alert-success" role="alert">{{c.success}}</div>
 
         <div class="form-group row">
           <div class="col-md-6">
@@ -230,6 +286,9 @@ This widget needs to:
           <label for="username" class="sr-only">{{ ::data.usernameMsg }}</label>
           <input id="username" name="username" autocapitalize="off" ng-keypress="c.message = ''" ng-click="c.message = ''" class="form-control no-border" type="text" placeholder='{{::data.usernameMsg}}' autofocus="true" ng-model="c.username"/>
         </div>
+        
+        <div ng-if="c.message" class="alert alert-danger" role="alert">{{c.message}}</div>
+        <div ng-if="c.success" class="alert alert-success" role="alert">{{c.success}}</div>
 
         <div class="form-group row">
           <div class="col-md-6">
@@ -238,7 +297,7 @@ This widget needs to:
 
           <div class="col-md-6">
             <div class="form-link">
-              <a ng-click="c.abandonRegistration()"><span class="fa fa-chevron-left"></span>&nbsp;${Back}</a>
+              <a ng-click="c.abandonRegistration()"><span class="fa fa-chevron-left"></span>&nbsp;${Back to login}</a>
             </div>
           </div>
         </div>
@@ -258,6 +317,9 @@ This widget needs to:
           <label for="username" class="sr-only">{{ ::data.usernameMsg }}</label>
           <input id="username" name="username" autocapitalize="off" ng-keypress="c.message = ''" ng-click="c.message = ''" class="form-control no-border" type="text" placeholder='{{::data.usernameMsg}}' autofocus="true" ng-model="c.username"/>
         </div>
+        
+        <div ng-if="c.message" class="alert alert-danger" role="alert">{{c.message}}</div>
+        <div ng-if="c.success" class="alert alert-success" role="alert">{{c.success}}</div>
 
         <div class="form-group row">
           <div class="col-md-6">
@@ -266,7 +328,7 @@ This widget needs to:
 
           <div class="col-md-6">
             <div class="form-link">
-              <a ng-click="c.abandonPasswordReset()"><span class="fa fa-chevron-left"></span>&nbsp;${Back}</a>
+              <a ng-click="c.abandonPasswordReset()"><span class="fa fa-chevron-left"></span>&nbsp;${Back to login}</a>
             </div>
           </div>
       </div>

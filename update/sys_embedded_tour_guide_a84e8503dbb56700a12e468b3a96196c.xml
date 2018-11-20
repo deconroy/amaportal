@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_guide">
+    <sys_embedded_tour_guide action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <additional_parameters/>
+        <autolaunch_order>0</autolaunch_order>
+        <context>amaportal?id=ask_me_anything&amp;gtd_portal_title=AMA Portal&amp;gtd_page_title=Ask Me Anything</context>
+        <description/>
+        <has_concl>false</has_concl>
+        <has_intro>true</has_intro>
+        <name>Ask questions</name>
+        <options/>
+        <roles/>
+        <sp_page display_value="ask_me_anything">b8d1400edbd9230098c535a27a96199b</sp_page>
+        <sp_portal display_value="AMA Portal">37fb7ff1dbd9230098c535a27a9619b7</sp_portal>
+        <status>published</status>
+        <sys_class_name>sys_embedded_tour_guide</sys_class_name>
+        <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
+        <sys_created_on>2018-11-20 07:49:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a84e8503dbb56700a12e468b3a96196c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Ask questions</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sys_embedded_tour_guide_a84e8503dbb56700a12e468b3a96196c</sys_update_name>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-11-20 07:52:31</sys_updated_on>
+        <type>service_portal</type>
+    </sys_embedded_tour_guide>
+</record_update>

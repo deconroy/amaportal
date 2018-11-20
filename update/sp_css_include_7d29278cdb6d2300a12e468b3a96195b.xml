@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <name>ama-fonts</name>
+        <source>local</source>
+        <sp_css display_value="ama-fonts.css">5c39278cdb6d2300a12e468b3a9619ef</sp_css>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-10-30 01:09:06</sys_created_on>
+        <sys_id>7d29278cdb6d2300a12e468b3a96195b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>ama-fonts</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>sp_css_include_7d29278cdb6d2300a12e468b3a96195b</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-07 00:52:57</sys_updated_on>
+        <url/>
+    </sp_css_include>
+</record_update>

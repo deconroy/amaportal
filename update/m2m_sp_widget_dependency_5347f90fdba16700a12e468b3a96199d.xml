@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="moment-timezone-with-data-2010-2020-v0.5">db6689c1cb11120000f8d856634c9c3b</sp_dependency>
+        <sp_widget display_value="AMA Main">8d32040edbd9230098c535a27a961965</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>josh.soutar</sys_created_by>
+        <sys_created_on>2018-11-08 00:33:21</sys_created_on>
+        <sys_id>5347f90fdba16700a12e468b3a96199d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>moment-timezone-with-data-2010-2020-v0.5.AMA Main</sys_name>
+        <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_5347f90fdba16700a12e468b3a96199d</sys_update_name>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-08 00:33:21</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

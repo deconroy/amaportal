@@ -6,31 +6,32 @@
         <sys_created_by>daniel.conroy@servicenow.com</sys_created_by>
         <sys_created_on>2018-10-26 04:57:36</sys_created_on>
         <sys_id>a417f3f2db51e30098c535a27a961964</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>ask-question.html</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_ng_template_a417f3f2db51e30098c535a27a961964</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:25:08</sys_updated_on>
-        <template><![CDATA[<div class="modal-header">
-  <h3 class="modal-title" id="modal-title">Ask a new question</h3>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-15 01:57:10</sys_updated_on>
+        <template><![CDATA[<div class="modal-header ask-question-modal-header">
+  <h3 class="modal-title" style='color: black;' id="modal-title">Ask a new question</h3>
 </div>
 <div class="modal-body" id="modal-body">
     <div class="form-group-lg">
       <textarea type="text" 
                 class="form-control" 
+                rows="4"
                 placeholder="Enter your question here."
                 ng-model="m.question"></textarea>
     </div>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-primary btn-lg" type="button" ng-click="m.ok()" ng-disabled="m.submitting">
+  <button class="btn btn-primary btn-md" type="button" ng-click="m.ok()" ng-disabled="m.submitting">
     <span ng-show="!m.submitting">Submit</span>
     <span ng-show="m.submitting">Posting Question...&nbsp;<i class="fa fa-spin fa-spinner"></i></span>
   </button>
-  <button class="btn btn-warning btn-lg" type="button" ng-click="m.cancel()" ng-hide="m.submitting">Cancel</button>
+  <button class="btn btn-default btn-md" type="button" ng-click="m.cancel()" ng-hide="m.submitting">Cancel</button>
 </div>]]></template>
     </sp_ng_template>
 </record_update>

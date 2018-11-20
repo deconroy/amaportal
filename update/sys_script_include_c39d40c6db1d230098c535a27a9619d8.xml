@@ -28,7 +28,7 @@ AMAUtil.prototype = {
 	getEventDetails: function(eventID) {
 		var event = new GlideRecord(this.event_table);
 		event.get(eventID);
-		var eventObj = this._buildEventObject(event);
+		var eventObj = this._buildEventObject(event, true);
 		eventObj.questions = this.getQuestionsForEvent(eventID);
 		return eventObj;
 	},
@@ -105,14 +105,18 @@ AMAUtil.prototype = {
 		question.update();
 	},
 	
-	_buildEventObject: function(event) {
-		return {
-			name: event.getDisplayValue(),
-			date: event.getDisplayValue("when"),
-			type: "event",
-			id: event.getUniqueValue(),
-			href: "?event=" + event.getUniqueValue()
+	_buildEventObject: function(event, include_description) {		
+		var returnObj = {
+			name:         event.getDisplayValue(),
+			date:         event.getDisplayValue("when"),				
+			type:         "event",
+			id:           event.getUniqueValue(),
+			href:         "?event=" + event.getUniqueValue()				
 		};
+		if(include_description) {
+			returnObj.description = event.getValue('event_description');
+		}
+		return returnObj;
 	},
 	
 	_buildQuestionObject: function(question) {
@@ -150,13 +154,19 @@ AMAUtil.prototype = {
 		if (!username) {
 			return false;
 		} else {
-			var createdUser = this._createUser(username);
+			var existingUser = this._getUser(username);
 			
-			if (createdUser) {
-				this._emailCredentials();
-				return createdUser;
+			if (!existingUser) {
+				var createdUser = this._createUser(username);
+
+				if (createdUser) {
+					this._emailCredentials(createdUser);
+					return createdUser.sys_id.toString();
+				} else {
+					return false;
+				}
 			} else {
-				return false;
+				return null;
 			}
 		}
 	},
@@ -165,17 +175,34 @@ AMAUtil.prototype = {
 		if (!username) {
 			return false;
 		} else {
-			var password = this._generatePassword(10);
-			gs.info("processPasswordReset - password: " + password);
-
 			var existingUser = this._getUser(username);
 			
 			if (existingUser) {
-				existingUser.setValue("user_password", password);
-				var existingUserId = existingUser.update();
-				
-				this._emailCredentials();
-				return (existingUserId) ? existingUserId : false;
+				this._emailCredentials(existingUser);
+				return existingUser.sys_id.toString();
+			} else {
+				return null;
+			}
+		}
+	},
+	
+	setPassword: function(username) {
+		gs.info("setPassword: username is: " + username);
+
+		if (!username) {
+			return false;
+		} else {
+			var password = this._generatePassword(10);
+			var existingUser = this._getUser(username);
+			
+			if (existingUser) {
+				existingUser.user_password.setDisplayValue(password);
+				existingUser.setValue("active", true);
+				existingUser.setValue("locked_out", false);
+				existingUser.setValue("password_needs_reset", true);
+				existingUser.update();
+
+				return password.toString();
 			} else {
 				return false;
 			}
@@ -186,17 +213,13 @@ AMAUtil.prototype = {
 		if (!username) {
 			return false;
 		} else {
-			var password = this._generatePassword(10);
-			gs.info("_createUser - password: " + password);
-
 			var usrGR = new GlideRecord("sys_user");
 			usrGR.initialize();
 			usrGR.setValue("email", username);
 			usrGR.setValue("user_name", username);
-			usrGR.setValue("user_password", password);
 			var newUserId = usrGR.insert();
 			
-			return (newUserId) ? newUserId : false;
+			return (newUserId) ? usrGR : false;
 		}
 	},
 	
@@ -231,8 +254,12 @@ AMAUtil.prototype = {
 		return generatedPassword;
 	},
 	
-	_emailCredentials: function() {
-		
+	_emailCredentials: function(userGR) {
+		if (!userGR) {
+			return false;
+		} else {
+			gs.eventQueue("x_snc_ama_portal.password.reset", userGR, userGR.sys_id.toString(), "ama_password_reset");
+		}
 	},
 
     type: 'AMAUtil'
@@ -241,13 +268,13 @@ AMAUtil.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:04:00</sys_created_on>
         <sys_id>c39d40c6db1d230098c535a27a9619d8</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>AMAUtil</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sys_script_include_c39d40c6db1d230098c535a27a9619d8</sys_update_name>
-        <sys_updated_by>sanjiv.viswanath</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:21:43</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-14 06:09:58</sys_updated_on>
     </sys_script_include>
 </record_update>

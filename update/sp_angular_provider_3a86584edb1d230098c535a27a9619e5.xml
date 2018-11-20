@@ -49,6 +49,16 @@
 				$http.get("/api/x_snc_ama_portal/ama_portal/eventdetails?event=" + $scope.event)
 					.then(function(r) {
 					c.eventDetail = r.data.result;
+					for(var i = 0; i < c.eventDetail.questions.length; i++) {
+						//Convert comment timestamp from DD/MM/YYYY hh:mm:ss to moment.fromNow()
+						for(var k = 0; k < c.eventDetail.questions[i].comments.length; k++) {
+							var unformatted_date = c.eventDetail.questions[i].comments[k].when;
+							if(unformatted_date) {
+								var formatted_date = moment(unformatted_date, 'DD/MM/YYYY hh:mm:ss').fromNow();
+								c.eventDetail.questions[i].comments[k].when = formatted_date;
+							}							
+						}
+					}					
 					console.log(r);
 				});
 			}
@@ -64,14 +74,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:42:39</sys_created_on>
         <sys_id>3a86584edb1d230098c535a27a9619e5</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>amaEventDetails</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_angular_provider_3a86584edb1d230098c535a27a9619e5</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-10-26 05:28:10</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-14 06:14:25</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>
