@@ -3,9 +3,10 @@
         <category>custom</category>
         <client_script><![CDATA[function(spUtil, $scope, $location) {
   var c = this;
-	if (!c.data.authenticated)
+	
+	if (!c.data.authenticated) {
 		processLogin();
-
+	}
 	
 	function processLogin() {
 		spUtil.get("ama_login")
@@ -13,7 +14,6 @@
 				c.loginWidget = r;
 		});
 	}
-	
 	
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -294,21 +294,21 @@ ama-loading {
         <roles/>
         <script><![CDATA[(function() {
 	data.authenticated = gs.isLoggedIn();	
-	data.event = $sp.getParameter("event");
+	data.event = $sp.getParameter("event");	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 03:12:07</sys_created_on>
         <sys_id>8d32040edbd9230098c535a27a961965</sys_id>
-        <sys_mod_count>165</sys_mod_count>
+        <sys_mod_count>173</sys_mod_count>
         <sys_name>AMA Main</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_widget_8d32040edbd9230098c535a27a961965</sys_update_name>
-        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-11-20 08:08:18</sys_updated_on>
+        <sys_updated_by>josh.soutar</sys_updated_by>
+        <sys_updated_on>2018-11-20 22:15:02</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-if="c.data.authenticated">
     <div ng-if="!c.data.event">

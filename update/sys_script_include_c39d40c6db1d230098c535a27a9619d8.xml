@@ -8,23 +8,24 @@
         <name>AMAUtil</name>
         <script><![CDATA[var AMAUtil = Class.create();
 AMAUtil.prototype = {
-    initialize: function() {
+	initialize: function() {
 		this.event_table = "x_snc_ama_portal_event";
 		this.question_table = "x_snc_ama_portal_question";
 		this.vote_table = "x_snc_ama_portal_vote";
 		this.comment_table = "x_snc_ama_portal_comment";
-    },
-	
+	},
+
 	getEventList: function() {
 		var events = [];
 		var event = new GlideRecord(this.event_table);
+		event.addActiveQuery();
 		event.query();
 		while (event.next()) {
 			events.push(this._buildEventObject(event));
 		}
 		return events;
 	},
-	
+
 	getEventDetails: function(eventID) {
 		var event = new GlideRecord(this.event_table);
 		event.get(eventID);
@@ -32,11 +33,12 @@ AMAUtil.prototype = {
 		eventObj.questions = this.getQuestionsForEvent(eventID);
 		return eventObj;
 	},
-	
+
 	getQuestionsForEvent: function(eventID) {
 		var questions = [];
 		var question = new GlideRecord(this.question_table);
 		question.addQuery("event", eventID);
+		question.addActiveQuery();
 		question.query();
 		while(question.next()) {
 			questions.push(this._buildQuestionObject(question));
@@ -44,6 +46,15 @@ AMAUtil.prototype = {
 		return questions;
 	},
 	
+	getEventPageName: function(event) {
+		if (!event)
+			return "Select Event";
+		var e = new GlideRecord(this.event_table);
+		if (!e.get(event))
+			return "";
+		return e.getDisplayValue("title");
+	},
+
 	getVoteDataForQuestion: function(questionId) {
 		var user = gs.getUserID();
 		var question = new GlideRecord(this.question_table);
@@ -69,7 +80,7 @@ AMAUtil.prototype = {
 			score: score
 		};
 	},
-	
+
 	updateMyVote: function(questionId, score) {
 		var user = gs.getUserID();
 		var vote = new GlideRecord(this.vote_table);
@@ -87,7 +98,7 @@ AMAUtil.prototype = {
 			return vote.insert();
 		}
 	},
-	
+
 	//called from BR on insert/update/delete of vote record
 	processVote: function(voteRecord) {
 		var questionId = voteRecord.getValue("question");
@@ -104,28 +115,36 @@ AMAUtil.prototype = {
 		question.score = totalVote;
 		question.update();
 	},
-	
+
 	_buildEventObject: function(event, include_description) {		
 		var returnObj = {
-			name:         event.getDisplayValue(),
-			date:         event.getDisplayValue("when"),				
-			type:         "event",
-			id:           event.getUniqueValue(),
-			href:         "?event=" + event.getUniqueValue()				
+			name: event.getDisplayValue(),
+			date: event.getDisplayValue("when"),				
+			type: "event",
+			id: event.getUniqueValue(),
+			locked: event.locked.toString(),
+			active: event.active.toString(),
+			href: "?event=" + event.getUniqueValue()				
 		};
 		if(include_description) {
 			returnObj.description = event.getValue('event_description');
 		}
 		return returnObj;
 	},
-	
+
 	_buildQuestionObject: function(question) {
 		var voteData = this.getVoteDataForQuestion(question.getUniqueValue());
+		var user_id = question.getValue("sys_created_by");
+		var user_id_from_email = false;
+		if (user_id.indexOf('@') != -1) {
+			user_id_from_email = true;
+		}
+
 		return {
 			name: question.getDisplayValue(),
 			created: question.getDisplayValue("sys_created_on"),
 			type: "question",
-			user: question.getDisplayValue("sys_created_by"),
+			user: (user_id_from_email) ? user_id.substring(0, user_id.indexOf('@')) : question.getValue("sys_created_by"),
 			id: question.getUniqueValue(),
 			score: voteData.score,
 			up: voteData.up,
@@ -133,29 +152,35 @@ AMAUtil.prototype = {
 			comments: this._getCommentsArray(question.getUniqueValue())
 		};
 	},
-	
+
 	_getCommentsArray: function(question) {
 		var comments = [];
 		var comment = new GlideRecord(this.comment_table);
 		comment.addQuery("question", question);
 		comment.query();
 		while (comment.next()) {
+			var user_id = comment.getValue("sys_created_by");
+			var user_id_from_email = false;
+			if (user_id.indexOf('@') != -1) {
+				user_id_from_email = true;
+			}		
+
 			comments.push({
 				comment: comment.getValue("comment"),
 				when: comment.getDisplayValue("sys_created_on"),
-				by: comment.getValue("sys_created_by"),
+				by: (user_id_from_email) ? user_id.substring(0, user_id.indexOf('@')) : comment.getValue("sys_created_by"),
 				id: comment.getDisplayValue()
 			});
 		}
 		return comments;
 	},
-	
+
 	processRegistration: function(username) {
 		if (!username) {
 			return false;
 		} else {
 			var existingUser = this._getUser(username);
-			
+
 			if (!existingUser) {
 				var createdUser = this._createUser(username);
 
@@ -170,13 +195,13 @@ AMAUtil.prototype = {
 			}
 		}
 	},
-	
+
 	processPasswordReset: function(username) {
 		if (!username) {
 			return false;
 		} else {
 			var existingUser = this._getUser(username);
-			
+
 			if (existingUser) {
 				this._emailCredentials(existingUser);
 				return existingUser.sys_id.toString();
@@ -185,7 +210,7 @@ AMAUtil.prototype = {
 			}
 		}
 	},
-	
+
 	setPassword: function(username) {
 		gs.info("setPassword: username is: " + username);
 
@@ -194,7 +219,7 @@ AMAUtil.prototype = {
 		} else {
 			var password = this._generatePassword(10);
 			var existingUser = this._getUser(username);
-			
+
 			if (existingUser) {
 				existingUser.user_password.setDisplayValue(password);
 				existingUser.setValue("active", true);
@@ -208,21 +233,32 @@ AMAUtil.prototype = {
 			}
 		}
 	},
-	
+
 	_createUser: function(username) {
 		if (!username) {
 			return false;
-		} else {
+		} else {		
+
+			//Capture First & Last name from provided username
+			var firstNameRegex = new RegExp(/[^.]*/);			
+			var first_name = firstNameRegex.exec(username)[0];
+			first_name =  first_name.charAt(0).toUpperCase() + first_name.slice(1);
+			var lastNameRegex = (username.indexOf('@') != -1) ? new RegExp(/\.(.*?)\@/) : new RegExp(/\.(.*)/);
+			var last_name = lastNameRegex.exec(username)[1];
+			last_name =  last_name.charAt(0).toUpperCase() + last_name.slice(1);						
+
 			var usrGR = new GlideRecord("sys_user");
 			usrGR.initialize();
 			usrGR.setValue("email", username);
+			usrGR.setValue("first_name", first_name);
+			usrGR.setValue("last_name", last_name);
 			usrGR.setValue("user_name", username);
 			var newUserId = usrGR.insert();
-			
+
 			return (newUserId) ? usrGR : false;
 		}
 	},
-	
+
 	_getUser: function(username) {
 		if (!username) {
 			return false;
@@ -231,7 +267,7 @@ AMAUtil.prototype = {
 			usrGR.addQuery("user_name", username);
 			usrGR.addQuery("active", true);
 			usrGR.query();
-			
+
 			if (usrGR.hasNext()) {
 				while (usrGR.next()) {
 					return usrGR;
@@ -241,19 +277,19 @@ AMAUtil.prototype = {
 			}
 		}
 	},
-	
+
 	_generatePassword: function(length) {
 		var allowedStr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%()",
 			pwdLength = length || 10,
 			generatedPassword = "";
-		
+
 		for (var ctr = 0; ctr < pwdLength; ctr++) {
 			generatedPassword += allowedStr[Math.floor(Math.random() * allowedStr.length)];
 		}
-		
+
 		return generatedPassword;
 	},
-	
+
 	_emailCredentials: function(userGR) {
 		if (!userGR) {
 			return false;
@@ -262,19 +298,19 @@ AMAUtil.prototype = {
 		}
 	},
 
-    type: 'AMAUtil'
+	type: 'AMAUtil'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:04:00</sys_created_on>
         <sys_id>c39d40c6db1d230098c535a27a9619d8</sys_id>
-        <sys_mod_count>46</sys_mod_count>
+        <sys_mod_count>60</sys_mod_count>
         <sys_name>AMAUtil</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sys_script_include_c39d40c6db1d230098c535a27a9619d8</sys_update_name>
-        <sys_updated_by>josh.soutar</sys_updated_by>
-        <sys_updated_on>2018-11-14 06:09:58</sys_updated_on>
+        <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
+        <sys_updated_on>2018-11-30 03:53:14</sys_updated_on>
     </sys_script_include>
 </record_update>

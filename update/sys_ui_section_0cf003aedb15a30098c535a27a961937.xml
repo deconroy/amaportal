@@ -3,30 +3,86 @@
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>comment</element>
             <position>0</position>
-            <sys_created_by>vincent.zeng</sys_created_by>
-            <sys_created_on>2018-10-25 06:22:24</sys_created_on>
-            <sys_id>4cf003aedb15a30098c535a27a96193d</sys_id>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>2e20585fdb3d6700a12e468b3a961901</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
-            <sys_updated_by>vincent.zeng</sys_updated_by>
-            <sys_updated_on>2018-10-25 06:22:24</sys_updated_on>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>question</element>
+            <element>.begin_split</element>
             <position>1</position>
-            <sys_created_by>vincent.zeng</sys_created_by>
-            <sys_created_on>2018-10-25 06:22:24</sys_created_on>
-            <sys_id>c0f003aedb15a30098c535a27a96193e</sys_id>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>a220585fdb3d6700a12e468b3a961902</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
-            <sys_updated_by>vincent.zeng</sys_updated_by>
-            <sys_updated_on>2018-10-25 06:22:24</sys_updated_on>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>user</element>
+            <position>2</position>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>2620585fdb3d6700a12e468b3a961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
             <sys_user/>
             <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>a620585fdb3d6700a12e468b3a961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>question</element>
+            <position>4</position>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>2a20585fdb3d6700a12e468b3a961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>5</position>
+            <sys_created_by>josh.soutar</sys_created_by>
+            <sys_created_on>2018-11-20 21:56:55</sys_created_on>
+            <sys_id>aa20585fdb3d6700a12e468b3a961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_ama_portal_comment" sys_domain="global" view="Default view">0cf003aedb15a30098c535a27a961937</sys_ui_section>
+            <sys_updated_by>josh.soutar</sys_updated_by>
+            <sys_updated_on>2018-11-20 21:56:55</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

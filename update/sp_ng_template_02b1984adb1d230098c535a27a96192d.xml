@@ -6,14 +6,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-23 04:20:33</sys_created_on>
         <sys_id>02b1984adb1d230098c535a27a96192d</sys_id>
-        <sys_mod_count>99</sys_mod_count>
+        <sys_mod_count>102</sys_mod_count>
         <sys_name>amaCard.html</sys_name>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
         <sys_policy/>
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sp_ng_template_02b1984adb1d230098c535a27a96192d</sys_update_name>
         <sys_updated_by>josh.soutar</sys_updated_by>
-        <sys_updated_on>2018-11-19 06:08:27</sys_updated_on>
+        <sys_updated_on>2018-11-20 09:04:35</sys_updated_on>
         <template><![CDATA[<div class="card panel panel-default {{card.type}}" ng-class="{'col-xs-12 col-sm-4': card.type =='event'}" >
 
   <div ng-if="::card.type=='question'"
@@ -37,20 +37,19 @@
       <h3>
         {{ card.name }}
       </h3>
-      <!--p>
-{{card | json}}
-</p-->
+      
       <div class="comments-section no_side_padding col-sm-6">
         <a href 
            ng-show="card.comments.length"
            ng-click="c.show_comments = !c.show_comments"><span>
           <i class="fa fa-comments"></i>
-          &nbsp;{{card.comments.length.toString() || "0"}}<span id='comments_count_text'>
-          &nbsp;comments</span>
+          &nbsp;{{card.comments.length.toString() || "0"}}
+          <span id='comments_count_text'>&nbsp;comments</span>
           </span></a>
         <span ng-show="card.comments.length">&nbsp;|&nbsp;</span>
-        <a href ng-click="c.addComment()"><span>
-          <i class="fa fa-pencil"></i>&nbsp;${Add a comment}
+        <a href ng-click="c.addComment()"><span>          
+          <i uib-tooltip="Add a comment" class="fa fa-pencil"></i>
+          <span>&nbsp;${Add a comment}</span>
           </span></a>
       </div>
       <div class="bottom-descriptor col-sm-6">

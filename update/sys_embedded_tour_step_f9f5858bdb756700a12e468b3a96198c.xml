@@ -5,7 +5,7 @@
         <action_target/>
         <action_target_ref/>
         <active>true</active>
-        <content><![CDATA[Welcome to the AMA portal! This portal will allow you to ask questions for an AMA event hosted by an expert on the topic. When the event is live streamed, the questions posted here will be answered.]]></content>
+        <content><![CDATA[Welcome to the AMA portal! This portal will allow you to ask questions for an AMA event hosted by an expert on the topic. When the event is live streamed, the questions posted here will be answered. Select an event on this page to get started.]]></content>
         <guide display_value="Select an event">4895c94bdb756700a12e468b3a961980</guide>
         <implicit>false</implicit>
         <link/>
@@ -20,7 +20,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f9f5858bdb756700a12e468b3a96198c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Introduction</sys_name>
         <sys_overrides/>
         <sys_package display_value="Ask Me Anything Portal" source="x_snc_ama_portal">b3bab771dbd9230098c535a27a961968</sys_package>
@@ -28,7 +28,7 @@
         <sys_scope display_value="Ask Me Anything Portal">b3bab771dbd9230098c535a27a961968</sys_scope>
         <sys_update_name>sys_embedded_tour_step_f9f5858bdb756700a12e468b3a96198c</sys_update_name>
         <sys_updated_by>daniel.conroy@servicenow.com</sys_updated_by>
-        <sys_updated_on>2018-11-20 07:13:29</sys_updated_on>
+        <sys_updated_on>2018-11-27 06:21:53</sys_updated_on>
         <target/>
         <target_ref/>
         <title/>
